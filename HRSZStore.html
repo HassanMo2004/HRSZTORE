@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRSZ Clothing Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Basic page settings */
+        body {
+            font-family: Arial, sans-serif;
+            direction: ltr;
+            background-color: #f4f4f4;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5em;
+            margin: 0 1rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+        }
+        header nav a i {
+            margin-right: 5px;
+        }
+        header nav a:hover {
+            color: #f9c74f;
+        }
+        .cart {
+            position: relative;
+            right: 30px;
+            font-size: 2.1em;
+            color: white;
+            cursor: pointer;
+        }
+        .cart .count {
+            position: absolute;
+            top: -12px;
+            right: -10px;
+            background: #f9c74f;
+            color: #333;
+            padding: 1px 4px;
+            border-radius: 50%;
+            font-size: 0.6em;
+        }
+        .slider, .item-box, footer {
+            animation: fadeIn 0.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Slider settings */
+        .slider {
+            position: relative;
+            max-width: 90%;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slides img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 0.5em;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .arrow.left { left: 10px; }
+        .arrow.right { right: 10px; }
+        section {
+            display: none;
+            padding: 2rem;
+        }
+        .active {
+            display: block;
+        }
+        .item-box {
+            background-color: #fafafa;
+            padding: 1rem;
+            margin: 1rem;
+            display: inline-block;
+            width: 45%;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .item-box img {
+            width: 30%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .item-box button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+        }
+        .item-box button:hover {
+            background-color: #f9c74f;
+            color: #333;
+        }
+        .cart-items {
+            list-style: none;
+            padding: 0;
+        }
+        .cart-items li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            border-bottom: 1px solid #ddd;
+        }
+        .cart-items li button {
+            background: none;
+            border: none;
+            color: #d9534f;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+        .order-form {
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .order-form input, .order-form button {
+            padding: 0.5rem;
+            margin: 0.5rem;
+            width: 80%;
+            max-width: 400px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .order-form button {
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #333;
+            color: white;
+            margin-top: 2rem;
+        }
+        .invoice {
+            display: none;
+            border: 1px solid red;
+            padding: 1rem;
+            background-color: #fff;
+            margin: 1rem auto;
+            max-width: 600px;
+            text-align: left;
+            border-radius: 8px;
+            position: relative;
+        }
+        .invoice img {
+            width: 100px;
+            margin: 0 auto;
+            display: block;
+        }
+        .invoice h3 {
+            text-align: center;
+        }
+        .invoice-details {
+            border-top: 1px solid #ddd;
+            margin-top: 10px;
+            padding-top: 10px;
+            font-size: 1.1em;
+        }
+        .invoice strong {
+            color: #333;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1><i class="<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        header {
+            position: relative;
+            background-color: black; /* لون خلفية الهيدر */
+            padding: 3px;
+        }
+        
+        .logo {
+            position: absolute;
+            top: 0px; /* المسافة من الأعلى */
+            right: 0px; /* المسافة من اليمين */
+            width: 50px; /* عرض الشعار */
+            height: auto; /* الحفاظ على نسبة الطول إلى العرض */
+        }
+    </style>
+</head>
+<body>
+    <header>
+       <img src="file:///C:/Users/Hassan%20Mohamed/Downloads/%D8%AA%D8%B5%D9%85%D9%8A%D9%85%20%D8%A8%D8%AF%D9%88%D9%86%20%D8%B9%D9%86%D9%88%D8%A7%D9%86%20(3).png" alt="LOgo">
+    </a>
+  
+</i></h1>
+        <nav>
+           <a onclick="showSection('home')"><i class="fas fa-home"></i> Home</a>
+            <a onclick="showSection('men')"><i class="fas fa-male"></i> Men’s Clothing</a>
+            <a onclick="showSection('women')"><i class="fas fa-female"></i> Women’s Clothing</a>
+            <a onclick="showSection('kids')"><i class="fas fa-child"></i> Kids’ Clothing</a>
+</nav>
+        <div class="cart" onclick="showCart()">
+            <i class="fas fa-shopping-cart"></i> <span class="count" id="cart-count">0</span>
+        </div>
+    </header>
+
+    <section id="home" class="active">
+        <h2>Latest Products and Offers</h2>
+        <div class="slider">
+            <div class="arrow left" onclick="changeSlide('home', -1)">&#10094;</div>
+            <div class="slides">
+               <img alt="تيشرت قطن 100% سادة بأكمام قصيرة وشعار كلاسيكي للرجال من غانت" src="https://m.media-amazon.com/images/I/41uc3yGR5NL._AC_SX679_.jpg" data-old-hires="https://m.media-amazon.com/images/I/41uc3yGR5NL._AC_SL1000_.jpg" onload="markFeatureRenderForImageBlock(); if(this.width/this.height > 0.77){this.className += ' a-stretch-horizontal'}else{this.className += ' a-stretch-vertical'};this.onload='';setCSMReq('af');if(typeof addlongPoleTag === 'function'){ addlongPoleTag('af','desktop-image-atf-marker');};setCSMReq('cf')" data-a-image-name="landingImage" class="a-dynamic-image a-stretch-horizontal" id="landingImage" data-a-dynamic-image="{&quot;https://m.media-amazon.com/images/I/41uc3yGR5NL._AC_SX466_.jpg&quot;:[501,466],&quot;https://m.media-amazon.com/images/I/41uc3yGR5NL._AC_SX385_.jpg&quot;:[414,385],&quot;https://m.media-amazon.com/images/I/41uc3yGR5NL._AC_SX569_.jpg&quot;:[612,569],&quot;https://m.media-amazon.com/images/I/41uc3yGR5NL._AC_SX425_.jpg&quot;:[457,425],&quot;https://m.media-amazon.com/images/I/41uc3yGR5NL._AC_SX342_.jpg&quot;:[368,342],&quot;https://m.media-amazon.com/images/I/41uc3yGR5NL._AC_SX679_.jpg&quot;:[730,679],&quot;https://m.media-amazon.com/images/I/41uc3yGR5NL._AC_SX522_.jpg&quot;:[561,522]}" style="max-width: 399px; max-height: 518px;">
+               <img alt="تيشرت بولو من قماش البيكيه بقصة ضيقة سليم فت للرجال من امريكان ايجل موديل U-1165-9150-001" src="https://m.media-amazon.com/images/I/51f8muJf+kL._AC_SX679_.jpg" data-old-hires="https://m.media-amazon.com/images/I/51f8muJf+kL._AC_SL1500_.jpg" onload="markFeatureRenderForImageBlock(); if(this.width/this.height > 0.77){this.className += ' a-stretch-horizontal'}else{this.className += ' a-stretch-vertical'};this.onload='';setCSMReq('af');if(typeof addlongPoleTag === 'function'){ addlongPoleTag('af','desktop-image-atf-marker');};setCSMReq('cf')" data-a-image-name="landingImage" class="a-dynamic-image a-stretch-horizontal" id="landingImage" data-a-dynamic-image="{&quot;https://m.media-amazon.com/images/I/51f8muJf+kL._AC_SX522_.jpg&quot;:[669,522],&quot;https://m.media-amazon.com/images/I/51f8muJf+kL._AC_SX569_.jpg&quot;:[729,569],&quot;https://m.media-amazon.com/images/I/51f8muJf+kL._AC_SX385_.jpg&quot;:[494,385],&quot;https://m.media-amazon.com/images/I/51f8muJf+kL._AC_SX466_.jpg&quot;:[597,466],&quot;https://m.media-amazon.com/images/I/51f8muJf+kL._AC_SX342_.jpg&quot;:[438,342],&quot;https://m.media-amazon.com/images/I/51f8muJf+kL._AC_SX679_.jpg&quot;:[871,679],&quot;https://m.media-amazon.com/images/I/51f8muJf+kL._AC_SX425_.jpg&quot;:[545,425]}" style="max-width: 399px; max-height: 518px;">
+                <img alt="MANIKAN Polka Dot Puff Sleeve Dress, for women" src="https://m.media-amazon.com/images/I/61mVhR9mmOL._AC_SY741_.jpg" data-old-hires="https://m.media-amazon.com/images/I/61mVhR9mmOL._AC_SL1500_.jpg" onload="markFeatureRenderForImageBlock(); if(this.width/this.height > 0.77){this.className += ' a-stretch-horizontal'}else{this.className += ' a-stretch-vertical'};this.onload='';setCSMReq('af');if(typeof addlongPoleTag === 'function'){ addlongPoleTag('af','desktop-image-atf-marker');};setCSMReq('cf')" data-a-image-name="landingImage" class="a-dynamic-image a-stretch-vertical" id="landingImage" data-a-dynamic-image="{&quot;https://m.media-amazon.com/images/I/61mVhR9mmOL._AC_SY606_.jpg&quot;:[606,429],&quot;https://m.media-amazon.com/images/I/61mVhR9mmOL._AC_SY679_.jpg&quot;:[679,480],&quot;https://m.media-amazon.com/images/I/61mVhR9mmOL._AC_SY550_.jpg&quot;:[550,389],&quot;https://m.media-amazon.com/images/I/61mVhR9mmOL._AC_SY741_.jpg&quot;:[741,524],&quot;https://m.media-amazon.com/images/I/61mVhR9mmOL._AC_SY879_.jpg&quot;:[879,622],&quot;https://m.media-amazon.com/images/I/61mVhR9mmOL._AC_SY445_.jpg&quot;:[445,315],&quot;https://m.media-amazon.com/images/I/61mVhR9mmOL._AC_SY500_.jpg&quot;:[500,354]}" style="max-width: 272px; max-height: 353px;">
+            </div>
+
+
+            <div class="arrow right" onclick="changeSlide('home', 1)">&#10095;</div>
+<img alt="Green Women Black Lace Appliques Dress Satin Belt Black" src="https://m.media-amazon.com/images/I/51+tfgfLSGL._AC_SX679_.jpg" data-old-hires="https://m.media-amazon.com/images/I/51+tfgfLSGL._AC_SL1500_.jpg" onload="markFeatureRenderForImageBlock(); if(this.width/this.height > 0.77){this.className += ' a-stretch-horizontal'}else{this.className += ' a-stretch-vertical'};this.onload='';setCSMReq('af');if(typeof addlongPoleTag === 'function'){ addlongPoleTag('af','desktop-image-atf-marker');};setCSMReq('cf')" data-a-image-name="landingImage" class="a-dynamic-image a-stretch-horizontal" id="landingImage" data-a-dynamic-image="{&quot;https://m.media-amazon.com/images/I/51+tfgfLSGL._AC_SX342_.jpg&quot;:[342,342],&quot;https://m.media-amazon.com/images/I/51+tfgfLSGL._AC_SX679_.jpg&quot;:[679,679],&quot;https://m.media-amazon.com/images/I/51+tfgfLSGL._AC_SX425_.jpg&quot;:[425,425],&quot;https://m.media-amazon.com/images/I/51+tfgfLSGL._AC_SX466_.jpg&quot;:[466,466],&quot;https://m.media-amazon.com/images/I/51+tfgfLSGL._AC_SX569_.jpg&quot;:[569,569],&quot;https://m.media-amazon.com/images/I/51+tfgfLSGL._AC_SX385_.jpg&quot;:[385,385],&quot;https://m.media-amazon.com/images/I/51+tfgfLSGL._AC_SX522_.jpg&quot;:[522,522]}" style="max-width: 272px; max-height: 353px;">
+               <img alt="Printonline Unisex Zip Hoodie Sweatshirt" src="https://m.media-amazon.com/images/I/61IrEgdqMZL._AC_SY741_.jpg" data-old-hires="https://m.media-amazon.com/images/I/61IrEgdqMZL._AC_SL1280_.jpg" onload="markFeatureRenderForImageBlock(); if(this.width/this.height > 0.77){this.className += ' a-stretch-horizontal'}else{this.className += ' a-stretch-vertical'};this.onload='';setCSMReq('af');if(typeof addlongPoleTag === 'function'){ addlongPoleTag('af','desktop-image-atf-marker');};setCSMReq('cf')" data-a-image-name="landingImage" class="a-dynamic-image a-stretch-vertical" id="landingImage" data-a-dynamic-image="{&quot;https://m.media-amazon.com/images/I/61IrEgdqMZL._AC_SY879_.jpg&quot;:[879,659],&quot;https://m.media-amazon.com/images/I/61IrEgdqMZL._AC_SY606_.jpg&quot;:[606,455],&quot;https://m.media-amazon.com/images/I/61IrEgdqMZL._AC_SY550_.jpg&quot;:[550,413],&quot;https://m.media-amazon.com/images/I/61IrEgdqMZL._AC_SY679_.jpg&quot;:[679,509],&quot;https://m.media-amazon.com/images/I/61IrEgdqMZL._AC_SY741_.jpg&quot;:[741,556],&quot;https://m.media-amazon.com/images/I/61IrEgdqMZL._AC_SY445_.jpg&quot;:[445,334],&quot;https://m.media-amazon.com/images/I/61IrEgdqMZL._AC_SY500_.jpg&quot;:[500,375]}" style="max-width: 272px; max-height: 353px;">
+                <img alt="Deer Men&amp;#39;s Summer Tracksuit" src="https://m.media-amazon.com/images/I/61nRtddM9zL._AC_SX679_.jpg" data-old-hires="https://m.media-amazon.com/images/I/61nRtddM9zL._AC_SL1500_.jpg" onload="markFeatureRenderForImageBlock(); if(this.width/this.height > 0.77){this.className += ' a-stretch-horizontal'}else{this.className += ' a-stretch-vertical'};this.onload='';setCSMReq('af');if(typeof addlongPoleTag === 'function'){ addlongPoleTag('af','desktop-image-atf-marker');};setCSMReq('cf')" data-a-image-name="landingImage" class="a-dynamic-image a-stretch-horizontal" id="landingImage" data-a-dynamic-image="{&quot;https://m.media-amazon.com/images/I/61nRtddM9zL._AC_SX425_.jpg&quot;:[460,425],&quot;https://m.media-amazon.com/images/I/61nRtddM9zL._AC_SX385_.jpg&quot;:[417,385],&quot;https://m.media-amazon.com/images/I/61nRtddM9zL._AC_SX522_.jpg&quot;:[565,522],&quot;https://m.media-amazon.com/images/I/61nRtddM9zL._AC_SX569_.jpg&quot;:[616,569],&quot;https://m.media-amazon.com/images/I/61nRtddM9zL._AC_SX342_.jpg&quot;:[370,342],&quot;https://m.media-amazon.com/images/I/61nRtddM9zL._AC_SX679_.jpg&quot;:[735,679],&quot;https://m.media-amazon.com/images/I/61nRtddM9zL._AC_SX466_.jpg&quot;:[504,466]}" style="max-width: 272px; max-height: 353px;">
+</div>
+
+
+
+       
+    </section>
+
+    <section id="men">
+        <h2>Men’s Clothing</h2>
+        <div class="item-box">
+           <img width="100%" height="100%" id="107222776" src="https://cdn.salla.sa/vPREE/8GIcqVy1le9tJs3EkHKrrmSEyERL0e337iRefjpk.png" data-src="https://cdn.salla.sa/vPREE/8GIcqVy1le9tJs3EkHKrrmSEyERL0e337iRefjpk.png" alt="تيشيرت كاجوال قطني رمادي" class="lazy object-cover loaded" loading="lazy" data-ll-status="loaded">
+            <h3>Casual T-Shirt</h3>
+            <p>Price: 100 EGP</p>
+            <button onclick="addToCart('Casual T-Shirt', 100)"><i class="fas fa-cart-plus"></i> Add to cart</button>
+        </div>
+        <div class="item-box">
+           <img alt="Vintage Genes Black Men’s Slim Fit Stretch Denim Jeans Blue W32 L30 - Picture 1 of 10" data-zoom-src="https://i.ebayimg.com/images/g/dhcAAOSwxNZl~P2H/s-l1600.webp" loading="eager" fetchpriority="high" src="https://i.ebayimg.com/images/g/dhcAAOSwxNZl~P2H/s-l500.webp" onload="if (window &amp;&amp; (window.firstImgLoadTime == 0)) {window.firstImgLoadTime = new Date().getTime();} if (window &amp;&amp; window.heroImg &amp;&amp; this.src !== window.heroImg) {this.src = window.heroImg; window.heroImg=null;}" style="transform-origin: 588px 340px;" srcset="https://i.ebayimg.com/images/g/dhcAAOSwxNZl~P2H/s-l140.webp 140w, https://i.ebayimg.com/images/g/dhcAAOSwxNZl~P2H/s-l500.webp 500w, https://i.ebayimg.com/images/g/dhcAAOSwxNZl~P2H/s-l960.webp 960w, https://i.ebayimg.com/images/g/dhcAAOSwxNZl~P2H/s-l1600.webp 1600w," sizes="(min-width: 768px) 60vw, 100vw">
+            <h3>Jeans</h3>
+            <p>Price: 200 EGP</p>
+            <button onclick="addToCart('Jeans', 200)"><i class="fas fa-cart-plus"></i> Add to cart</button>
+        </div>
+    </section>
+
+<section id="women">
+        <h2>Women's clothing</h2>
+        <div class="item-box">
+           <img loading="lazy" width="377" height="500" src="https://bdmanja.com/wp-content/uploads/2021/12/Grey-Melange-And-Black-Sweatshirt-With-White-Color-Stripe.jpg" class="wp-post-image ux-skip-lazy wvs-archive-product-image" alt="Grey Melange And Black Sweatshirt With White Color Stripe" data-caption="" data-src="https://bdmanja.com/wp-content/uploads/2021/12/Grey-Melange-And-Black-Sweatshirt-With-White-Color-Stripe.jpg" data-large_image="https://bdmanja.com/wp-content/uploads/2021/12/Grey-Melange-And-Black-Sweatshirt-With-White-Color-Stripe.jpg" data-large_image_width="377" data-large_image_height="500" decoding="async" srcset="https://bdmanja.com/wp-content/uploads/2021/12/Grey-Melange-And-Black-Sweatshirt-With-White-Color-Stripe.jpg 377w, https://bdmanja.com/wp-content/uploads/2021/12/Grey-Melange-And-Black-Sweatshirt-With-White-Color-Stripe-302x400.jpg 302w" sizes="(max-width: 377px) 100vw, 377px" data-o_src="https://bdmanja.com/wp-content/uploads/2021/12/Grey-Melange-And-Black-Sweatshirt-With-White-Color-Stripe.jpg" data-o_height="500" data-o_width="377" data-o_srcset="https://bdmanja.com/wp-content/uploads/2021/12/Grey-Melange-And-Black-Sweatshirt-With-White-Color-Stripe.jpg 377w, https://bdmanja.com/wp-content/uploads/2021/12/Grey-Melange-And-Black-Sweatshirt-With-White-Color-Stripe-302x400.jpg 302w" data-o_sizes="(max-width: 377px) 100vw, 377px" data-o_title="" title="Grey Melange And Black Sweatshirt With White Color Stripe" data-o_data-caption="" data-o_alt="Grey Melange And Black Sweatshirt With White Color Stripe" data-o_data-src="https://bdmanja.com/wp-content/uploads/2021/12/Grey-Melange-And-Black-Sweatshirt-With-White-Color-Stripe.jpg" data-o_data-large_image="https://bdmanja.com/wp-content/uploads/2021/12/Grey-Melange-And-Black-Sweatshirt-With-White-Color-Stripe.jpg" data-o_data-large_image_width="377" data-o_data-large_image_height="500">
+           <h3>Black Color Women Sweatshirt With White Color Stripe</h3>
+            <p>Price: 100 EGP</p>
+            <button onclick="addToCart('Black Color Women Sweatshirt With White Color Stripe', 100)"><i class="fas fa-cart-plus"></i> Add to cart</button>
+        </div>
+        <div class="item-box">
+           <img alt="vintage US Navy jeans button fly selvedge denim sailor work chore 31 in waist - Picture 1 of 12" data-zoom-src="https://i.ebayimg.com/images/g/tNgAAOSwhplhsnzg/s-l1600.webp" loading="eager" fetchpriority="high" src="https://i.ebayimg.com/images/g/tNgAAOSwhplhsnzg/s-l300.webp" onload="if (window &amp;&amp; (window.firstImgLoadTime == 0)) {window.firstImgLoadTime = new Date().getTime();} if (window &amp;&amp; window.heroImg &amp;&amp; this.src !== window.heroImg) {this.src = window.heroImg; window.heroImg=null;}" srcset="https://i.ebayimg.com/images/g/tNgAAOSwhplhsnzg/s-l140.webp 140w, https://i.ebayimg.com/images/g/tNgAAOSwhplhsnzg/s-l300.webp 300w, https://i.ebayimg.com/images/g/tNgAAOSwhplhsnzg/s-l960.webp 960w, https://i.ebayimg.com/images/g/tNgAAOSwhplhsnzg/s-l1600.webp 1600w," sizes="(min-width: 768px) 60vw, 100vw" style="transform-origin: 585px 299px;">
+            <h3>Boyfriend jeans</h3>
+            <p>Price: 200 EGP</p>
+            <button onclick="addToCart('Boyfriend jeans, 200)"><i class="fas fa-cart-plus"></i> Add to cart</button>
+        </div>
+    </section>
+
+<section id="kids">
+        <h2>Children's clothing</h2>
+        <div class="item-box">
+            <img class="mfp-img" alt="Boys Polo Casual Basic Cotton Crafted From Soft Cotton For All-day Comfort T-shirt" src="https://www.tomatostores.com/media/catalog/product/cache/ffd04894feb1ed0f6c2c4b72b763932f/4/1/412369523CO-2230K_Wine_Extra_2.jpg" style="max-height: 559px;">
+            <h3>Boys Polo Casual Basic Cotton</h3>
+            <p>Price: 100 EGP</p>
+            <button onclick="addToCart('Boys Polo Casual Basic Cotton', 100)"><i class="fas fa-cart-plus"></i> Add to cart</button>
+        </div>
+        <div class="item-box">
+           <img class="mfp-img" alt="Boys Gabardine Sherwal Trousers With Elastic Waistband And Tomato Print On The Front" src="https://www.tomatostores.com/media/catalog/product/cache/ffd04894feb1ed0f6c2c4b72b763932f/4/6/46356692300TO-3118K_Beige_Extra_6.jpg" style="max-height: 559px;">
+            <h3>Boys Gabardine Sherwal</h3>
+            <p>Price: 200 EGP</p>
+            <button onclick="addToCart('Boys Gabardine Sherwal', 200)"><i class="fas fa-cart-plus"></i> Add to cart</button>
+        </div>
+    </section>
+
+    <section id="cart">
+        <h2><i class="fas fa-shopping-cart"></i> Add to cart</h2>
+        <ul id="cart-items" class="cart-items"></ul>
+        <div>
+            <strong>The Total: <span id="total-price">0</span> pound</strong>
+        </div>
+        <div class="order-form">
+            <h3>Complete the order</h3>
+            <input type="text" placeholder="Name" id="name">
+            <input type="text" placeholder="Address" id="address">
+            <input type="text" placeholder="Phone Number" id="phone">
+            <button onclick="placeOrder()">Complete the order</button>
+        </div>
+        <div class="invoice" id="invoice">
+            <h3>Order invoice</h3>
+            <div id="invoice-details"></div>
+            <button onclick="printInvoice()">Print invoice</button>
+        </div>
+    </section>
+
+  
+
+    <script>
+        let cart = {};
+
+        function showSection(sectionId) {
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        function addToCart(item, price) {
+            if (cart[item]) {
+                cart[item].quantity += 1;
+            } else {
+                cart[item] = { quantity: 1, price: price };
+            }
+            document.getElementById('cart-count').innerText = Object.keys(cart).length;
+            alert(item + " Added to cart!");
+            updateTotal();
+        }
+
+        function showCart() {
+            const cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = '';
+            for (let item in cart) {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${item} - ${cart[item].quantity} × ${cart[item].price} pound`;
+    
+
+                const decreaseButton = document.createElement('button');
+                decreaseButton.innerHTML = '<i class="fas fa-minus">';
+                decreaseButton.onclick = () => decreaseQuantity(item);
+                listItem.appendChild(decreaseButton);
+
+                cartItems.appendChild(listItem);
+
+const removeButton = document.createElement('button');
+                removeButton.innerHTML = '<i class="fas fa-trash-alt">';
+                removeButton.onclick = () => removeFromCart(item);
+                listItem.appendChild(removeButton);
+            }
+            updateTotal();
+            showSection('cart');
+        }
+
+        function removeFromCart(item) {
+            delete cart[item];
+            document.getElementById('cart-count').innerText = Object.keys(cart).length;
+            showCart();
+        }
+
+        function decreaseQuantity(item) {
+            if (cart[item].quantity > 1) {
+                cart[item].quantity -= 1;
+            } else {
+                removeFromCart(item);
+            }
+            showCart();
+        }
+
+        function updateTotal() {
+            let total = 0;
+            for (let item in cart) {
+                total += cart[item].price * cart[item].quantity;
+            }
+            document.getElementById('total-price').innerText = total;
+        }
+
+        function placeOrder() {
+            const name = document.getElementById('name').value;
+            const address = document.getElementById('address').value;
+            const phone = document.getElementById('phone').value;
+            if (name && address && phone) {
+                let invoiceDetails = `<strong>Name:</strong> ${name}<br><strong>Address:</strong> ${address}<br><strong>Phone Number:</strong> ${phone}<br><br><strong>Product Details:</strong><br>`;
+                for (let item in cart) {
+                    invoiceDetails += `${item} - ${cart[item].quantity} × ${cart[item].price} pound<br>`;
+                }
+                invoiceDetails += `<strong>Total: ${document.getElementById('total-price').innerText} pound</strong>`;
+                
+                document.getElementById('invoice-details').innerHTML = invoiceDetails;
+                document.getElementById('invoice').style.display = 'block';
+
+                cart = {};
+                document.getElementById('cart-count').innerText = 0;
+                document.getElementById('cart-items').innerHTML = '';
+                document.getElementById('name').value = '';
+                document.getElementById('address').value = '';
+                document.getElementById('phone').value = '';
+                updateTotal();
+            } else {
+                alert("Please fill in all data to complete the application.");
+            }
+        }
+
+        function printInvoice() {
+            const invoiceContent = document.getElementById('invoice').innerHTML;
+            const win = window.open('', '', 'height=500,width=800');
+            win.document.write('<html><head><title>Order invoice</title>');
+            win.document.write('</head><body>');
+            win.document.write(invoiceContent);
+            win.document.write('</body></html>');
+            win.document.close();
+            win.print();
+        }
+
+        const slidesIndex = { home: 0, men: 0, women: 0, kids: 0 };
+
+        function changeSlide(section, direction) {
+            const slides = document.querySelector(`#${section} .slides`);
+            const totalSlides = slides.children.length;
+            slidesIndex[section] = (slidesIndex[section] + direction + totalSlides) % totalSlides;
+            slides.style.transform = `translateX(-${slidesIndex[section] * 100}%)`;
+        }
+
+        document.querySelectorAll('.slider').forEach(slider => {
+            const sectionId = slider.parentElement.id;
+            setInterval(() => changeSlide(sectionId, 1), 5000);
+        });
+    </script>
+
+</body>
+</html>
